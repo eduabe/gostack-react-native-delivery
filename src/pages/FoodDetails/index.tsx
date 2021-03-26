@@ -127,7 +127,7 @@ const FoodDetails: React.FC = () => {
   }
 
   function handleDecrementFood(): void {
-    if (foodQuantity > 0) {
+    if (foodQuantity > 1) {
       setFoodQuantity(foodQuantity - 1);
     }
   }
@@ -141,7 +141,7 @@ const FoodDetails: React.FC = () => {
       (accumulator, current) => accumulator + current.quantity * current.value,
       0,
     );
-    return extrasTotal + foodQuantity * food.price;
+    return formatValue(extrasTotal + foodQuantity * food.price);
   }, [extras, food, foodQuantity]);
 
   async function handleFinishOrder(): Promise<void> {}
